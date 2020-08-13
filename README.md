@@ -29,3 +29,4 @@
 |  ----  | ----  | ----  |
 | 2020-08-13  | shiyiyuedeyu | done |
 | 2020-08-13  | NobiJin | done |
+| 2020-08-13  | Wade | done |
