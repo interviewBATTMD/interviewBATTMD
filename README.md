@@ -6,6 +6,8 @@
 ## 二、JAVA基础
 [Java并发-synchronized](./2-Java基础/synchronized.md)
 
+[Java并发-JMM](./2-Java基础/JMM.md)
+
 ## 三、数据结构和基础算法
 
 ## 四、Linux操作系统、Shell编程
