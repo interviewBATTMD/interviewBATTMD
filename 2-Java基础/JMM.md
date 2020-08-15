@@ -1,3 +1,5 @@
+笔记来源https://blog.csdn.net/javazejian/article/details/72772461
+
 # 指令重排
 计算机在执行程序时，为了提高性能，编译器和处理器的常常会对指令做重排，一般分以下3种
 
