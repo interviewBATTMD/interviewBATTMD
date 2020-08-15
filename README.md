@@ -4,6 +4,7 @@
 [detail](./1-C++基础/C++基础.md)
 
 ## 二、JAVA基础
+[Java并发-synchronized](./2-Java基础/synchronized.md)
 
 ## 三、数据结构和基础算法
 
@@ -32,4 +33,5 @@
 | 2020-08-13 | Wade | done |
 | 2020-08-13 | DropNetL | done |
 | 2020-08-14  | shiyiyuedeyu | done |
+| 2020-08-15  | Wade | done |
 | 2020-08-15  | shiyiyuedeyu | done |
