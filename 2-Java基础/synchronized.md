@@ -1,3 +1,5 @@
+**笔记出自https://blog.csdn.net/javazejian/article/details/72828483**
+
 # synchronized的三种应用方式
 
 * 修饰实例方法，作用于当前实例加锁，进入同步代码前要获得当前实例的锁
@@ -236,4 +238,4 @@ wait() 和sleep() 的区别：
 
 
 
-**笔记出自https://blog.csdn.net/javazejian/article/details/72828483**
+
