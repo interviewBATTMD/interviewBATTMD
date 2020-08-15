@@ -235,3 +235,5 @@ wait() 和sleep() 的区别：
 * sleep()只让线程休眠并不释放监视器锁
 
 
+
+**笔记出自https://blog.csdn.net/javazejian/article/details/72828483**
