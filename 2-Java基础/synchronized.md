@@ -179,27 +179,27 @@ public static boolean Thread.interrupted();
 
 **1.sleep()&interrupt()**
 
-线程A正在使用sleep()暂停着:Thread.sleep(100000);
+* 线程A正在使用sleep()暂停着:Thread.sleep(100000);
 
-如果要取消他的等待状态,可以在正在执行的线程里(比如这里是B)调用a.interrupt();
+* 如果要取消他的等待状态,可以在正在执行的线程里(比如这里是B)调用a.interrupt();
 
-令线程A放弃睡眠操作,这里a是线程A对应到的Thread实例
+* 令线程A放弃睡眠操作,这里a是线程A对应到的Thread实例
 
-当在sleep中时 线程被调用interrupt()时,就马上会放弃暂停的状态.并抛出InterruptedException.丢出异常的,是A线程.
+* 当在sleep中时 线程被调用interrupt()时,就马上会放弃暂停的状态.并抛出InterruptedException.丢出异常的,是A线程.
 
 **2.wait()&interrupt()**
 
-线程A调用了wait()进入了等待状态,也可以用interrupt()取消.
+* 线程A调用了wait()进入了等待状态,也可以用interrupt()取消.
 
-不过这时候要小心锁定的问题.线程在进入等待区,会把锁定解除,当对等待中的线程调用interrupt()时,*会先重新获取锁定,再抛出异常*.在获取锁定之前,是无法抛出异常的.
+* 不过这时候要小心锁定的问题.线程在进入等待区,会把锁定解除,当对等待中的线程调用interrupt()时,*会先重新获取锁定,再抛出异常*.在获取锁定之前,是无法抛出异常的.
 
 **3.join()&interrupt()**
 
-当线程以join()等待其他线程结束时,当它被调用interrupt()，它与sleep()时一样,会马上跳到catch块里.
+* 当线程以join()等待其他线程结束时,当它被调用interrupt()，它与sleep()时一样,会马上跳到catch块里.
 
-注意，是对谁调用interrupt()方法,一定是调用被阻塞线程的interrupt方法.如在线程a中调用来线程t.join().
+* 注意，是对谁调用interrupt()方法,一定是调用被阻塞线程的interrupt方法.如在线程a中调用来线程t.join().
 
-则a会等t执行完后在执行t.join后的代码,当在线程b中调用来a.interrupt()方法,则会抛出InterruptedException，当然join()也就被取消了
+* 则a会等t执行完后在执行t.join后的代码,当在线程b中调用来a.interrupt()方法,则会抛出InterruptedException，当然join()也就被取消了
 
 ### 中断与synchronized
 线程的中断操作对于正在等待获取的锁对象的synchronized方法或者代码块并不起作用，
