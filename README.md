@@ -10,7 +10,7 @@
 ## 四、Linux操作系统、Shell编程
 
 ## 五、网络编程
-[detail](./4-网络编程/网络编程.md)
+[detail](./5-网络编程/网络编程.md)
 
 ## 六、数据库
 
@@ -32,3 +32,4 @@
 | 2020-08-13 | Wade | done |
 | 2020-08-13 | DropNetL | done |
 | 2020-08-14  | shiyiyuedeyu | done |
+| 2020-08-15  | shiyiyuedeyu | done |
