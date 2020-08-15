@@ -177,7 +177,7 @@ public static boolean Thread.interrupted();
 
 * 当线程处于运行状态时，我们也可调用实例方法interrupt()进行线程中断，但同时必须手动判断中断状态，并编写中断线程的代码(其实就是结束run方法体的代码)
 
-1.sleep()&interrupt()
+**1.sleep()&interrupt()**
 
 线程A正在使用sleep()暂停着:Thread.sleep(100000);
 
@@ -187,13 +187,13 @@ public static boolean Thread.interrupted();
 
 当在sleep中时 线程被调用interrupt()时,就马上会放弃暂停的状态.并抛出InterruptedException.丢出异常的,是A线程.
 
-2.wait()&interrupt()
+**2.wait()&interrupt()**
 
 线程A调用了wait()进入了等待状态,也可以用interrupt()取消.
 
 不过这时候要小心锁定的问题.线程在进入等待区,会把锁定解除,当对等待中的线程调用interrupt()时,*会先重新获取锁定,再抛出异常*.在获取锁定之前,是无法抛出异常的.
 
-3.join()&interrupt()
+**3.join()&interrupt()**
 
 当线程以join()等待其他线程结束时,当它被调用interrupt()，它与sleep()时一样,会马上跳到catch块里.
 
