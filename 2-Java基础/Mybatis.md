@@ -18,7 +18,7 @@
 
 8）输出结果映射：输出结果类型可以是 Map、 List 等集合类型，也可以是基本数据类型和 POJO 类型。输出结果映射过程类似于 JDBC 对结果集的解析过程。
 
-# MyBatis编程步骤是什么样的？
+# MyBatis编程步骤
 
 1）创建SqlSessionFactory
 
