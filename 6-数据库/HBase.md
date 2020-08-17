@@ -1,3 +1,5 @@
+笔记来源 https://juejin.im/post/6844903753271754759#heading-4
+
 # 逻辑存储结构
 ![image1](https://github.com/interviewBATTMD/interviewBATTMD/blob/master/6-%E6%95%B0%E6%8D%AE%E5%BA%93/HBase.png)
 
