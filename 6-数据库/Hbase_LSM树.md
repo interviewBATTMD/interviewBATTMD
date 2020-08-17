@@ -1,3 +1,5 @@
+笔记来源：https://juejin.im/post/6844903863758094343
+
 # LSM树定义
 LSM树（Log-Structured-Merge-Tree）和B+树类似，它们被设计出来都是为了更好地将数据存储到大容量磁盘中。相对于B+树，LSM树拥有更好的随机写性能。
 
