@@ -20,6 +20,9 @@
 [Mybatis](./2-Java基础/Mybatis.md)
 
 ## 六、数据库
+[HBase](./6-数据库/HBase.md)
+
+[Hbase_LSM树](./6-数据库/Hbase_LSM树.md)
 
 ## 七、推荐系统与广告推荐
 
