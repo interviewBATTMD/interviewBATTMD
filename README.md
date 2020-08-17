@@ -32,11 +32,7 @@
 ## 打卡
 |  日期   | 昵称  | 打卡  |
 |  ----  | ----  | ----  |
-| 2020-08-13  | shiyiyuedeyu | done |
 | 2020-08-13  | NobiJin | done |
-| 2020-08-13 | Wade | done |
-| 2020-08-13 | DropNetL | done |
-| 2020-08-14  | shiyiyuedeyu | done |
+| 2020-08-17 | DropNetL | done |
 | 2020-08-15  | Wade | done |
-| 2020-08-15  | shiyiyuedeyu | done |
 | 2020-08-16  | shiyiyuedeyu | done |
