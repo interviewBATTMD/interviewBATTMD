@@ -34,5 +34,5 @@
 |  ----  | ----  | ----  |
 | 2020-08-13  | NobiJin | done |
 | 2020-08-17 | DropNetL | done |
-| 2020-08-15  | Wade | done |
+| 2020-08-17  | Wade | done |
 | 2020-08-16  | shiyiyuedeyu | done |
