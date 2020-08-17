@@ -1,3 +1,5 @@
+# Mybatis工作原理
+
 ![image1](https://github.com/interviewBATTMD/interviewBATTMD/blob/master/2-Java%E5%9F%BA%E7%A1%80/mybatis.png)
 
 1）读取 MyBatis 配置文件：mybatis-config.xml 为 MyBatis 的全局配置文件，配置了 MyBatis 的运行环境等信息，例如数据库连接信息。
@@ -15,3 +17,15 @@
 7）输入参数映射：输入参数类型可以是 Map、List 等集合类型，也可以是基本数据类型和 POJO 类型。输入参数映射过程类似于 JDBC 对 preparedStatement 对象设置参数的过程。
 
 8）输出结果映射：输出结果类型可以是 Map、 List 等集合类型，也可以是基本数据类型和 POJO 类型。输出结果映射过程类似于 JDBC 对结果集的解析过程。
+
+# MyBatis编程步骤是什么样的？
+
+1）创建SqlSessionFactory
+
+2）通过SqlSessionFactory创建SqlSession
+
+3）通过sqlsession执行数据库操作
+
+4）调用session.commit()提交事务
+
+5）调用session.close()关闭会话
