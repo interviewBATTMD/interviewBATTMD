@@ -28,3 +28,27 @@ https://www.cnblogs.com/sky-heaven/p/8204614.html
 ### Linux进程调度器
 https://blog.csdn.net/gatieme/article/details/51699889  
 **2个调度器**  
+
+### 线程同步方式有哪些？  
+互斥锁，自旋锁，读写锁、条件变量  
+C++ STL实现的方案：  
+C++11 mutex、condition_variable
+C++17 读写锁shared_mutex https://blog.csdn.net/gongjianbo1992/article/details/100061344  
+C++20 信号量#include<semaphore>  
+
+Linux系统调用pthread实现：  
+
+### 互斥锁和自旋锁的区别，自旋锁的应用场景  
+https://blog.csdn.net/qq_26093511/article/details/78634288  
+从实现原理上来讲，Mutex属于sleep-waiting类型的锁。没有获得锁线程就会被阻塞。  
+自旋锁属于busy-waiting类型的锁，会一直不停地去请求锁。  
+自旋锁不会引起调用者阻塞，所以自旋锁的效率远高于互斥锁。  
+然后自旋锁一直占用CPU，如果不能在短时间内获得锁，会使CPU效率降低。  
+》》mutex导致线程阻塞  
+mutex导致线程阻塞，使得线程停止执行，释放CPU，会涉及线程（上下文）切换的问题，如果频繁进行线程切换的话，对性能的消耗还是挺大的，自旋锁（这里指pthread实现，非STL11mutex模拟）则不会涉及线程切换的问题，因为一直再运行状态，但是自旋锁也会涉及内核态到用户态的转换  
+》》pthread mutex实现  
+https://blog.csdn.net/weixin_30348519/article/details/97269843  
+从2.6.x内核之后，Linux的mutex都是futex（Fast-Usermode-muTEX）锁。  
+futex（快速用户区互斥的简称）是一个在Linux上实现锁定和构建高级抽象锁如信号量和POSIX互斥的基本工具。  
+Futex是由用户空间的一个对齐的整型变量和附在其上的内核空间等待队列构成，多进程或多线程绝大多数情况下对位于用户空间的futex的整型变量进行操作（汇编语言调用CPU提供的原子操作指令来增加或减少），而其他情况下，则需要通过代价较大的系统调用来对位于内核空间的等待队列进行操作（如唤醒等待的进程/线程，或将当前进程/线程放入等待队列）。除了多个线程同时竞争锁的少数情况外，基于futex的lock操作是不需要进行代价昂贵的系统调用操作的。  
+这种机制的核心思想是通过将大多数情况下非同时竞争lock的操作放到在用户空间来执行，而不是代价昂贵的内核系统调用方式来执行，从而提高了效率。  
