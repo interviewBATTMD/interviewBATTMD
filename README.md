@@ -43,7 +43,7 @@
 ## 打卡
 |  日期   | 昵称  | 打卡  |
 |  ----  | ----  | ----  |
-| 2020-08-13  | NobiJin | done |
+| 2020-08-19  | NobiJin | done |
 | 2020-08-18 | DropNetL | done |
 | 2020-08-17  | Wade | done |
 | 2020-08-18  | shiyiyuedeyu | done |
