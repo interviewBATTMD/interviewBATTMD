@@ -21,6 +21,7 @@ HTTP响应也由3个部分构成，分别是：状态行、响应头(Response He
 ## HTTP基本特性
 
 ## HTTP持久连接（Keep-Alive模式）
+HTTP 协议采用“请求-应答”模式，当使用普通模式，即非 Keep-Alive 模式时，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP 协议为无连接的协议）；当使用 Keep-Alive 模式（又称持久连接、连接重用）时，Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接。在HTTP1.1中规定默认enable。
 
 ## HTTP中Session与Cookie
 
