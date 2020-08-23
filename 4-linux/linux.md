@@ -58,3 +58,16 @@ Futex是由用户空间的一个对齐的整型变量和附在其上的内核空
 线程安全函数：多个线程并发调用同一个函数时，不会出现乱序或者错误结果，我们可以说是线程安全的。  
 可重入函数以一定是线程安全的，但是线程安全是可重入函数。  
 例如close()是可重入函数，但是不是线程安全的，如果两个线程同时close()操作，会core dump。  
+
+
+## Linux 命令
+### free命令
+```
+free -h
+```
+会显示2行，一行是Mem，一行是Swap，Mem是内存空间，Swap是交换空间（一般是磁盘了）。  
+Mem ： total used free shared buff/cache available  
+total是内存总大小，used是使用内存的大小，free是空闲内存大小，shared是多个进程共享的内存总额，buff/cache中buffer指buffer cache，cache指page cache，page cache主要用来作为文件系统上的文件数据的缓存来用，尤其针对当进程对文件有read/write操作的时候。buffer cache则主要是设计用来在系统对块设备进行读写的时候，对块进行数据缓存的系统来使用。https://blog.csdn.net/lqglqglqg/article/details/82313966  
+
+total = used + free + buff/cache  
+available = free + buffer + cache（当没有足够的free空间时，会从buffer和cache中回收内存，当然不是全部剥夺，所以这里的“=”两边数值不一定相等）。  

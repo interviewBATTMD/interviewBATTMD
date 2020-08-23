@@ -15,6 +15,31 @@ int cal(int n) {
     else return 1 + cal(n / 2);
 }
 ```
+极坐标解法：https://blog.csdn.net/qq_41855420/article/details/88978033  
+
+2、给你一个圆的圆心（0，0）半径为R，实现给出一个在圆内的一个随机点  
+```
+class Solution {
+public:
+    double rad, xc, yc;
+    
+    Solution(double radius, double x_center, double y_centor) {
+        rad = radius;
+        xc = x_center;
+        yc = y_center;
+    }
+
+    vector<double> randPoint() {
+        while (true) {
+            double x = 2 * (double)rand()/RAND_MAX - 1；
+            double y = 2 * (double)rand()/RAND_MAX - 1;
+            if (x * x + y * y <= 1) {
+                return {xc + x * rad, yc + y * rad};
+            }
+        }
+    }
+};
+```
 
 # 归并排序
 1、对100TB的数据进行排序？（拆分多个数据段进行排序，然后归并）需要归并多少次？分配给多个机器并行处理，应该怎么做？  
