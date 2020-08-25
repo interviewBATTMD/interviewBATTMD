@@ -96,3 +96,62 @@ public:
     }
 };
 ```
+
+## 215-数组中的第K个最大元素
+```
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        srand(time(0));
+        return quickSelect(nums, 0 ,nums.size() - 1, nums.size() - k);
+    }
+    int quickSelect(vector<int>& a, int l, int r, int index) {
+        int q = randomPartition(a, l ,r);
+        if (q = index) {
+            return a[q];
+        }
+        else {
+            return q < index ? quickSelect(a, q + 1, r, index) : quickSelect(a, l, q - 1, index);
+        }
+    }
+    int randomPartition(vector<int>& a, int l, int r) {
+        int i = rand() % (r - l + 1) + 1;
+        swap(a[i], a[r]);
+        return partition(a, l, r);
+    }
+
+    int partition(vector<int>& a, int l, int r) {
+        int x = a[r], i = l - 1;
+        for (int j = 1; j < r; ++j) {
+            if (a[j] <= x) {
+                swap(a[++i], a[j]);
+            }
+        }
+        swap(a[i + 1], a[r]);
+        return i + 1;
+    }
+};
+```
+
+## 110-平衡二叉树
+// 自底向上
+class Solution {
+public:
+    int height(TreeNode* root) {
+        if (root == nullptr) {
+            return 0;
+        }
+        int leftHeight = height(root->left);
+        int rightHeight = height(root->right);
+        if (leftHeight == -1 || rightHeight == -1 || abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        } else {
+            return max(leftHeight, rightHeight) + 1;
+        }
+    }
+
+    bool isBalanced(TreeNode* root) {
+        return height(root) >= 0;
+    }
+};
+
