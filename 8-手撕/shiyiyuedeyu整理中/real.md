@@ -41,6 +41,54 @@ public:
 };
 ```
 
+3、两个线程轮流打印A和B
+```
+#include<atomic>
+#include<iostream>
+#include<mutex>
+#include<thread>
+#include<condition_variable>
+
+using namespace std;
+
+atomic<int> count;
+mutex mtx;
+condition_variable cond;
+
+class Solution {
+public:
+    void printA() {
+        while (1) {
+            unique_lock<mutex> lck(mutex);
+            cond.wait(lck, [](){return count == 1;});
+            count = 0;
+            cout << "A" << endl;
+            cond.notify_one();
+        }
+    }
+
+    void printB() {
+        while(1) {
+            unique_lock<mutex> lck(mutex);
+            cond.wait(lck, [](){return count == 0;});
+            count = 1;
+            cout << "B" << endl;
+            cond.notify_one();
+        }
+    }
+};
+
+
+int main() {
+    Solution s;
+    thread th1(s.printA);
+    thread th2(s.printB);
+    th1.join();
+    th2.join();
+    return 0;
+}
+```
+
 # 归并排序
 1、对100TB的数据进行排序？（拆分多个数据段进行排序，然后归并）需要归并多少次？分配给多个机器并行处理，应该怎么做？  
 

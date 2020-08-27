@@ -155,3 +155,56 @@ public:
     }
 };
 
+
+## 99-恢复二叉搜索树
+class Solution {
+public:
+    void inorder(TreeNode* root, vector<int>& nums) {
+        if (root == nullptr) {
+            return;
+        }
+        inorder(root->left, nums);
+        nums.push_back(root->val);
+        inorder(root->right, nums);
+    }
+
+    pair<int, int> findTwoSwapped(vector<int>& nums) {
+        int n = nums.size();
+        int x = -1, y = -1;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums[i + 1] < nums[i]) {
+                y = nums[i + 1];
+                if (x == -1) {
+                    x = nums[i];
+                }
+                else break;
+            }
+        }
+        return {}
+    }
+
+    void recoverTree(TreeNode* root) {
+        vector<int> nums;
+        inorder(root, nums);
+        pair<int, int> swapped = findTwoSwapped(nums);
+    }
+};
+
+// 判断二叉排序树
+class Solution {
+public:
+    bool Tree(TreeNode* root) {
+        return TreeCore(root, INT_MIN, INT_MAX);
+    }
+
+    bool TreeCore(TreeNode* root, int left, int right) {
+        if (!root) {
+            return true;
+        }
+        if (root->val > right || root->val < left) {
+            return false;
+        } 
+        return TreeCore(root->left, left, root->val) && TreeCore(root->right, root->val, right);
+    }
+};
+

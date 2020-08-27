@@ -282,3 +282,41 @@ public:
 };
 ```
 
+# BFS
+## 695-岛屿的最大面积
+```
+class Solution {
+private:
+    int maxIsland;
+public:
+    int maxAreaIsland(vector<vector<int>>& grid) {
+        maxIsland = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[0].size(); j++) {
+                if (grid[i][j] == 1) {
+                    int sum = 0;
+                    bfs(grid, i, j, sum);
+                }
+            }
+        }
+        return maxIsland;
+    }
+
+    void bfs(vector<vector<int>>& grid, int i, int j, int& sum) {
+        if (i < 0 || j >= grid.size() || j < 0 || j >= grid[0].size()) {
+            maxIsland = max(maxIsland, sum);
+            return;
+        }
+        if (grid[i][j] == 0) {
+            maxIsland = max(maxIsland, sum);
+            return;
+        }
+        sum += 1;
+        grid[i][j] = 0;
+        bfs(grid, i + 1, j, sum);
+        bfs(grid, i - 1, j, sum);
+        bfs(grid, i, j - 1, sum);
+        bfs(grid, i, j + 1, sum);
+    }
+};
+```
